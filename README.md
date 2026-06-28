@@ -242,7 +242,6 @@ Jun 28 2026 15:35:12 fw-secondary %ASA-4-106100: Deny HTTPS src ge-0/0/0:164.18.
 | `validate` | Validate all product TOMLs + output profiles |
 
 ---
-
 ## 🗺️ Roadmap
 
 - [x] Cisco ASA Firewall
