@@ -241,27 +241,6 @@ Jun 28 2026 15:35:12 fw-secondary %ASA-4-106100: Deny HTTPS src ge-0/0/0:164.18.
 | `oneshot` | One-shot batch send (`-O` use profile, `-c` count) |
 | `validate` | Validate all product TOMLs + output profiles |
 
----
-## 🗺️ Roadmap
-
-- [x] Cisco ASA Firewall
-- [x] Huawei USG Firewall
-- [x] Juniper SRX Firewall
-- [x] Output Profile Management
-- [x] Sample Export to Folder
-- [x] Weighted Log Type Distribution
-- [x] Regex-based Random Generator Engine
-- [ ] Palo Alto PAN-OS
-- [ ] Fortinet FortiGate
-- [ ] Check Point Firewall
-- [ ] Windows Event Log (XML)
-- [ ] Linux syslog
-- [ ] Async high-throughput send (aiohttp)
-- [ ] JSON output format
-- [ ] Docker deployment
-- [ ] Web Dashboard
-
----
 
 ## 📄 License
 
