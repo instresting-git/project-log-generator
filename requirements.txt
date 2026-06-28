@@ -1,0 +1,10 @@
+# Project Log Generator — Requirements
+# 多廠商日誌生成器依賴 (盡量使用 Python 標準庫)
+
+# 核心依賴（無需第三方庫即可運行基本功能）
+# Python >= 3.8
+
+# 可選依賴 — 提升效能與功能
+# rstr>=3.2.1      # 從 regex 生成隨機字串（可選，用於更精確的 regex 隨機生成）
+# aiohttp>=3.9.0   # 異步 HTTP 發送（可選，用於高吞吐 HTTP 輸出）
+# tomli>=2.0.0     # Python < 3.11 的 TOML 解析（可選，目前使用自帶解析器）

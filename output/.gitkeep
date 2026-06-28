@@ -1,0 +1,2 @@
+# Output directory for file-mode log generation
+# 此目錄存放通過 --protocol file 生成的日誌檔案

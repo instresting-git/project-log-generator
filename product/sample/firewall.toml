@@ -1,0 +1,63 @@
+# ============================================================
+# Sample Firewall — Demo Product Config
+# ============================================================
+# This is a sample template. Copy and modify to create your own vendor configs.
+#
+# [logs.fields] rules:
+#   { pattern = "GROK_NAME" }  → generate via Grok pattern
+#   { values = "a|b|c" }      → random pick from pool (| or , delimiter)
+#   (both omitted)            → use field name as Grok pattern name
+
+[product]
+name = "Sample Firewall"
+vendor = "sample"
+type = "firewall"
+version = "1.0.0"
+
+# ---- Traffic Log ----
+[[logs]]
+name = "traffic"
+description = "Traffic flow logs (Built/Teardown connections)"
+template = "%{TIMESTAMP_ISO8601} %{HOSTNAME} %{SYSLOG_TAG}: %{ACTION} %{PROTOCOL} connection %{CONN_ID} from %{SRC_IP}:%{SRC_PORT} to %{DST_IP}:%{DST_PORT}"
+rate = 100
+
+[logs.fields]
+TIMESTAMP_ISO8601 = { pattern = "TIMESTAMP_ISO8601" }
+HOSTNAME = { pattern = "HOSTNAME" }
+SYSLOG_TAG = { values = "%SAMPLE-6-CONN|%SAMPLE-6-TRAFFIC|%SAMPLE-6-FLOW" }
+ACTION = { values = "Built|Teardown|Denied" }
+PROTOCOL = { pattern = "PROTOCOL" }
+CONN_ID = { pattern = "INT" }
+SRC_IP = { pattern = "IPV4_PRIVATE" }
+SRC_PORT = { pattern = "PORT" }
+DST_IP = { pattern = "IPV4_PRIVATE" }
+DST_PORT = { pattern = "PORT_WELL_KNOWN" }
+
+# ---- VPN Log ----
+[[logs]]
+name = "vpn"
+description = "IPSec/SSL VPN connection logs"
+template = "%{TIMESTAMP_ISO8601} %{HOSTNAME} %{SYSLOG_TAG}: VPN=%{VPN_NAME} user=%{USERNAME} src=%{SRC_IP} %{VPN_STATUS}"
+rate = 10
+
+[logs.fields]
+TIMESTAMP_ISO8601 = { pattern = "TIMESTAMP_ISO8601" }
+HOSTNAME = { pattern = "HOSTNAME" }
+SYSLOG_TAG = { values = "%SAMPLE-4-VPN|%SAMPLE-6-VPN" }
+VPN_NAME = { values = "Branch-Office|AWS-Tunnel|Remote-Access|Partner-VPN" }
+USERNAME = { pattern = "USERNAME" }
+SRC_IP = { pattern = "IPV4_PUBLIC" }
+VPN_STATUS = { values = "connected|disconnected|timeout|auth-failed" }
+
+# ---- System Log ----
+[[logs]]
+name = "system"
+description = "System and health check logs"
+template = "%{TIMESTAMP_ISO8601} %{HOSTNAME} %{SYSLOG_TAG}: %{SYS_MSG}"
+rate = 2
+
+[logs.fields]
+TIMESTAMP_ISO8601 = { pattern = "TIMESTAMP_ISO8601" }
+HOSTNAME = { pattern = "HOSTNAME" }
+SYSLOG_TAG = { values = "%SAMPLE-3-ERROR|%SAMPLE-5-NOTICE|%SAMPLE-6-INFO" }
+SYS_MSG = { values = "Interface ge-0/0/0 link up|Interface ge-0/0/1 link down|CPU usage 87% exceeds threshold|Config saved by admin|HA status: Active|System reboot completed" }

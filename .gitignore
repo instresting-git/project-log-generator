@@ -1,0 +1,26 @@
+# Project Log Generator — .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Runtime generated logs (output from --protocol file)
+output/generated_logs.log
+
+# Personal config — ignored, use output_profiles.example.conf as template
+output/output_profiles.conf
+
+# OS
+Thumbs.db
