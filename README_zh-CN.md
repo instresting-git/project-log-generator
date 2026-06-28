@@ -244,28 +244,6 @@ Jun 28 2026 15:35:12 fw-secondary %ASA-4-106100: Deny HTTPS src ge-0/0/0:164.18.
 
 ---
 
-## 🗺️ Roadmap
-
-- [x] Cisco ASA Firewall
-- [x] Huawei USG Firewall
-- [x] Juniper SRX Firewall
-- [x] Output Profile 配置管理系统
-- [x] Sample 导出到 Folder
-- [x] 加权日志类型分配
-- [x] 基于 Regex 的随机生成引擎
-- [ ] Palo Alto PAN-OS
-- [ ] Fortinet FortiGate
-- [ ] Check Point Firewall
-- [ ] Windows Event Log (XML)
-- [ ] Linux syslog
-- [ ] 异步高吞吐发送 (aiohttp)
-- [ ] JSON 格式输出
-- [ ] 性能基准测试报告
-- [ ] Docker 部署支持
-- [ ] Web Dashboard 监控
-
----
-
 ## 📄 License
 
 MIT
