@@ -1,0 +1,89 @@
+# ============================================================
+# FortiGate — FortiGate system, traffic, utm, event log
+# ============================================================
+
+[product]
+name = "FortiGate_v6.2"
+vendor = "FortiNet"
+type = "firewall"
+version = "6.2"
+
+# ---- Traffic Log ----
+[[logs]]
+name = "traffic"
+description = "Traffic flow logs (forward/deny/sniffer)"
+template = 'date=%{YEAR}-%{MONTHNUM}-%{MONTHDAY} time=%{HOUR}:%{MINUTE}:%{SECOND} logid="%{FORTIGATE_EVENT_ID}" type="traffic" subtype="%{FORTIGATE_TRAFFIC_SUBTYPE}" level="%{LEVEL}" vd="%{FORTIGATE_VD}" eventtime=%{FORTIGATE_EVENTTIME} srcip=%{FORTIGATE_SRCIP} srcport=%{FORTIGATE_SRCPORT} srcintf="%{FORTIGATE_SRCINTF}" srcintfrole="%{FORTIGATE_SRCINTFROLE}" dstip=%{FORTIGATE_DSTIP} dstport=%{FORTIGATE_DSTPORT} dstintf="%{FORTIGATE_DSTINTF}" dstintfrole="%{FORTIGATE_DSTINTFROLE}" srcuuid="%{FORTIGATE_SRCUUID}" dstuuid="%{FORTIGATE_DSTUUID}" poluuid="%{FORTIGATE_POLUUID}" sessionid=%{FORTIGATE_SESSIONID} proto=%{FORTIGATE_PROTO} action="%{FORTIGATE_ACTION}" policyid=%{FORTIGATE_POLICYID} policytype="%{FORTIGATE_POLICYTYPE}" service="%{FORTIGATE_SERVICE}" dstcountry="%{FORTIGATE_DSTCOUNTRY}" srccountry="%{FORTIGATE_SRCCOUNTRY}" trandisp="%{FORTIGATE_TRANDISP}" transip=%{FORTIGATE_TRANSIP} transport=%{FORTIGATE_TRANSPORT} appid=%{FORTIGATE_APPID} app="%{FORTIGATE_APP}" appcat="%{FORTIGATE_APPCAT}" apprisk="%{FORTIGATE_APPRISK}" applist="%{FORTIGATE_APPLIST}" duration=%{FORTIGATE_DURATION} sentbyte=%{FORTIGATE_SENTBYTE} rcvdbyte=%{FORTIGATE_RCVDBYTE} sentpkt=%{FORTIGATE_SENTPKT} rcvdpkt=%{FORTIGATE_RCVDPKT} utmaction="%{FORTIGATE_UTMACTION}" countapp=%{FORTIGATE_COUNTAPP} osname="%{FORTIGATE_OSNAME}" mastersrcmac="%{FORTIGATE_MASTERSRCMAC}" srcmac="%{FORTIGATE_SRCMAC}" srcserver=%{FORTIGATE_SRCSERVER} utmref=%{FORTIGATE_UTMREF}'
+rate = 100
+
+[logs.fields]
+# ---- Timestamp ----
+YEAR = { pattern = "YEAR" }
+MONTHNUM = { pattern = "MONTHNUM" }
+MONTHDAY = { pattern = "MONTHDAY" }
+HOUR = { pattern = "HOUR" }
+MINUTE = { pattern = "MINUTE" }
+SECOND = { pattern = "SECOND" }
+FORTIGATE_EVENTTIME = { pattern = "FORTIGATE_EVENTTIME" }
+
+# ---- Event / Severity ----
+FORTIGATE_EVENT_ID = { pattern = "FORTIGATE_EVENT_ID" }
+FORTIGATE_TRAFFIC_SUBTYPE = { pattern = "FORTIGATE_TRAFFIC_SUBTYPE" }
+LEVEL = { pattern = "LEVEL" }
+FORTIGATE_VD = { pattern = "FORTIGATE_VD" }
+
+# ---- Source ----
+FORTIGATE_SRCIP = { pattern = "IPV4_PRIVATE" }
+FORTIGATE_SRCPORT = { pattern = "PORT" }
+FORTIGATE_SRCINTF = { pattern = "FORTIGATE_SRCINTF" }
+FORTIGATE_SRCINTFROLE = { pattern = "FORTIGATE_SRCINTFROLE" }
+FORTIGATE_SRCUUID = { pattern = "UUID" }
+FORTIGATE_SRCMAC = { pattern = "MAC" }
+FORTIGATE_MASTERSRCMAC = { pattern = "MAC" }
+FORTIGATE_SRCCOUNTRY = { pattern = "FORTIGATE_SRCCOUNTRY" }
+FORTIGATE_SRCSERVER = { pattern = "FORTIGATE_SRCSERVER" }
+
+# ---- Destination ----
+FORTIGATE_DSTIP = { pattern = "IPV4_PUBLIC" }
+FORTIGATE_DSTPORT = { pattern = "PORT_WELL_KNOWN" }
+FORTIGATE_DSTINTF = { pattern = "FORTIGATE_DSTINTF" }
+FORTIGATE_DSTINTFROLE = { pattern = "FORTIGATE_DSTINTFROLE" }
+FORTIGATE_DSTUUID = { pattern = "UUID" }
+FORTIGATE_DSTCOUNTRY = { pattern = "FORTIGATE_DSTCOUNTRY" }
+
+# ---- Policy ----
+FORTIGATE_POLICYID = { pattern = "FORTIGATE_POLICYID" }
+FORTIGATE_POLICYTYPE = { pattern = "FORTIGATE_POLICYTYPE" }
+FORTIGATE_POLUUID = { pattern = "UUID" }
+
+# ---- Connection ----
+FORTIGATE_SESSIONID = { pattern = "FORTIGATE_SESSIONID" }
+FORTIGATE_PROTO = { pattern = "PROTO_NUM" }
+FORTIGATE_ACTION = { pattern = "FORTIGATE_ACTION" }
+FORTIGATE_SERVICE = { pattern = "FORTIGATE_SERVICE" }
+
+# ---- NAT ----
+FORTIGATE_TRANDISP = { pattern = "FORTIGATE_TRANDISP" }
+FORTIGATE_TRANSIP = { pattern = "FORTIGATE_TRANSIP" }
+FORTIGATE_TRANSPORT = { pattern = "PORT" }
+
+# ---- Application ----
+FORTIGATE_APPID = { pattern = "FORTIGATE_APPID" }
+FORTIGATE_APP = { pattern = "FORTIGATE_APP" }
+FORTIGATE_APPCAT = { pattern = "FORTIGATE_APPCAT" }
+FORTIGATE_APPRISK = { pattern = "FORTIGATE_APPRISK" }
+FORTIGATE_APPLIST = { pattern = "FORTIGATE_APPLIST" }
+
+# ---- Traffic Stats ----
+FORTIGATE_DURATION = { pattern = "FORTIGATE_DURATION" }
+FORTIGATE_SENTBYTE = { pattern = "FORTIGATE_SENTBYTE" }
+FORTIGATE_RCVDBYTE = { pattern = "FORTIGATE_RCVDBYTE" }
+FORTIGATE_SENTPKT = { pattern = "FORTIGATE_SENTPKT" }
+FORTIGATE_RCVDPKT = { pattern = "FORTIGATE_RCVDPKT" }
+FORTIGATE_COUNTAPP = { pattern = "FORTIGATE_COUNTAPP" }
+
+# ---- UTM / Security ----
+FORTIGATE_UTMACTION = { pattern = "FORTIGATE_UTMACTION" }
+FORTIGATE_UTMREF = { pattern = "FORTIGATE_UTMREF" }
+
+# ---- Endpoint ----
+FORTIGATE_OSNAME = { pattern = "FORTIGATE_OSNAME" }
